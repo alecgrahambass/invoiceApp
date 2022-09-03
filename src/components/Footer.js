@@ -1,17 +1,14 @@
-export default function Footer() {
+export default function Footer({bankName, bankAccount, zelle, venmo}) {
   return ( 
     <>
-      <footer>
-        <ul className="flex flex-wrap items-center
+      <footer className="footer">
+        <h2 className="text-center text-xl italic">Payment Methods</h2>
+        <ul className="mt-5 flex flex-wrap items-center
         justify-center">
-          <li><span className="font-bold">Your Name:</span> Alec Graham</li>
-          <li><span className="font-bold">Your Email:</span> alecgrahambass@gmail.com </li>
-          <li><span className="font-bold">Phone Number:</span> 0712 345 678</li>
-          <li><span className="font-bold">Bank:</span> Wells Fargo</li>
-          <li><span className="font-bold">Account Holder:</span> Alec Graham</li>
-          <li><span className="font-bold">Bank Account Number:</span> 123 456 789</li>
-          <li><span className="font-bold">Zelle:</span> zelle thing</li>
-          <li><span className="font-bold">Venmo:</span> @alecgraham</li> 
+          <li><span className="font-bold">Bank:</span>{bankName}</li>
+          <li><span className="font-bold">Account Number:</span>{bankAccount}</li>
+          <li><span className="font-bold">Zelle:</span>{zelle}</li>
+          <li><span className="font-bold">Venmo:</span> {venmo}</li> 
 
         </ul> 
       </footer>
