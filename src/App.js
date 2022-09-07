@@ -60,94 +60,126 @@ function App() {
                 invoice number, invoice date, due date, notes  */}
                   <div className="flex flex-col 
                   justify-center">
-                    <label htmlFor="name">Enter your name</label>
-                    <input type="text"  
-                    name="text" 
-                    id="name" 
-                    placeholder="Enter your name"  
-                    autoComplete="on"
-                    value={name}
-                    onChange={(e) => setName(e.target.value)}
-                    />
-                    <label htmlFor="address">Enter your address</label>
-                    <input 
-                    type="text"  
-                    name="street address" 
-                    id="address" 
-                    placeholder="Enter your street" 
-                    autoComplete="on" 
-                    value={streetAddress}
-                    onChange={(e) => setStreetAddress(e.target.value)}
-                    />
-                    <input 
-                    type="text"  
-                    name="City address" 
-                    id="city address" 
-                    placeholder="Enter your City/state/Zip" 
-                    autoComplete="on" 
-                    value={cityAddress}
-                    onChange={(e) => setCityAddress(e.target.value)}
-                    />
-                    <label htmlFor="email">Enter your email</label>
-                    <input 
-                    type="email"  
-                    name="email" 
-                    id="email" 
-                    placeholder="Enter your email" 
-                    autoComplete="on" 
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    />
-                    <label htmlFor="phone">Enter your phone number</label>
-                    <input 
-                    type="text"  
-                    name="phone" 
-                    id="phone" 
-                    placeholder="Enter your phone number" 
-                    autoComplete="on" 
-                    value={phone}
-                    onChange={(e) => setPhone(e.target.value)}
-                    />
-                    <label htmlFor="bank name">Enter your Bank Name</label>
-                    <input 
-                    type="text"  
-                    name="bank name" 
-                    id="bank name" 
-                    placeholder="Enter your bank name" 
-                    autoComplete="on" 
-                    value={bankName}
-                    onChange={(e) => setBankName(e.target.value)}
-                    />
-                    <label htmlFor="bank account">Enter your Bank Account Number</label>
-                    <input 
-                    type="text"  
-                    name="bank account" 
-                    id="bank account" 
-                    placeholder="Enter your bank account number" 
-                    autoComplete="on" 
-                    value={bankAccount}
-                    onChange={(e) => setBankAccount(e.target.value)}
-                    />
-                    <label htmlFor="zelle">Enter your zelle</label>
-                    <input 
-                    type="text"  
-                    name="zelle" 
-                    id="zelle" 
-                    placeholder="Enter your zelle" 
-                    autoComplete="on" 
-                    value={zelle}
-                    onChange={(e) => setZelle(e.target.value)}
-                    />
-                    <label htmlFor="venmo">Enter your venmo</label>
-                    <input 
-                    type="text"  
-                    name="venmo" 
-                    id="venmo" 
-                    placeholder="Enter your venmo" 
-                    autoComplete="on" 
-                    value={venmo}
-                    onChange={(e) => setVenmo(e.target.value)}
-                    />
+                    <article className="lg:grid grid-cols-3 gap-10">
+                      <div className="flex flex-col">
+                        <label htmlFor="name">Enter your full name</label >
+                        <input 
+                          type="text"  
+                          name="text" 
+                          id="name" 
+                          placeholder="full name"   
+                          autoComplete="on"
+                          value={name}
+                          onChange={(e) => setName(e.target.value)}
+                        />
+                      </div>
+                      <div className="flex flex-col">
+                        <label htmlFor="address">Enter your street name</label>
+                        <input 
+                          type="text"  
+                          name="address" 
+                          id="address" 
+                          placeholder="street name" 
+                          autoComplete="on" 
+                          value={streetAddress}
+                          onChange={(e) => setStreetAddress(e.target.value)}
+                        />
+                      </div>
+                      <div className="flex flex-col">
+                      <label htmlFor="city/state/zip">Enter your address</label>
+                      <input 
+                        type="text"  
+                        name="City address" 
+                        id="city address" 
+                        placeholder="city/state/zip" 
+                        autoComplete="on" 
+                        value={cityAddress}
+                        onChange={(e) => setCityAddress(e.target.value)}
+                        />
+                      </div>
+                    </article>
+
+                    <article className="lg:grid grid-cols-2 gap-10"> 
+                      <div className="flex flex-col">
+                        <label htmlFor="email">Enter your email</label>
+                        <input 
+                          type="email"  
+                          name="email" 
+                          id="email" 
+                          placeholder="email" 
+                          autoComplete="on" 
+                          value={email}
+                          onChange={(e) => setEmail(e.target.value)}
+                        />
+                      </div>
+                      <div className="flex flex-col">
+                        <label htmlFor="phone">Enter your phone number</label>
+                        <input 
+                          type="text"  
+                          name="phone" 
+                          id="phone" 
+                          placeholder="phone number" 
+                          autoComplete="on" 
+                          value={phone}
+                          onChange={(e) => setPhone(e.target.value)}
+                        />
+                      </div>
+                    </article>
+                  
+                  <article className="lg:grid grid-cols-2 gap-10">
+                    <div className="flex flex-col">
+                      <label htmlFor="bank name">Enter your Bank Name</label>
+                      <input 
+                        type="text"  
+                        name="bank name" 
+                        id="bank name" 
+                        placeholder="Enter your bank name" 
+                        autoComplete="on" 
+                        value={bankName}
+                        onChange={(e) => setBankName(e.target.value)}
+                      />
+                    </div>
+                    <div className="flex flex-col">
+                      <label htmlFor="bank account">Enter your Bank Account Number</label>
+                      <input 
+                        type="text"  
+                        name="bank account" 
+                        id="bank account" 
+                        placeholder="Enter your bank account number" 
+                        autoComplete="on" 
+                        value={bankAccount}
+                        onChange={(e) => setBankAccount(e.target.value)}
+                      />
+                    </div>
+                  </article>
+
+                  <article className="lg:grid grid-cols-2 gap-10">
+                    <div className="flex flex-col">
+                      <label htmlFor="zelle">Enter your zelle</label>
+                      <input 
+                        type="text"  
+                        name="zelle" 
+                        id="zelle" 
+                        placeholder="Enter your zelle" 
+                        autoComplete="on" 
+                        value={zelle}
+                        onChange={(e) => setZelle(e.target.value)}
+                      />
+                    </div>
+                    <div className="flex flex-col">
+                      <label htmlFor="venmo">Enter your venmo</label>
+                      <input 
+                        type="text"  
+                        name="venmo" 
+                        id="venmo" 
+                        placeholder="Enter your venmo" 
+                        autoComplete="on" 
+                        value={venmo}
+                        onChange={(e) => setVenmo(e.target.value)}
+                      />
+                    </div>
+                  </article>
+
                     <label htmlFor="clientName">Enter your client's name</label>
                     <input 
                     type="text"  
