@@ -2,9 +2,13 @@ import { getActiveElement } from "@testing-library/user-event/dist/utils"
 
 export default function Table({date, timeIn, timeOut }) {
 
-  function addTime(timeIn, timeOut) {
-
-    return timeIn
+  function addTime(date,timeIn, timeOut) {
+      let dateTimeIn = new Date(`${date} ${timeIn}`)
+      let dateTimeOut = new Date(`${date} ${timeOut}`)
+      let difference = dateTimeOut.getTime() - dateTimeIn.getTime()
+      let minutes = (difference/1000)/60
+      console.log(minutes)
+    return Math.round((minutes/60) * 100) / 100
   }
  return ( 
   <>
@@ -22,7 +26,7 @@ export default function Table({date, timeIn, timeOut }) {
           <td>{date}</td>
           <td>{timeIn}</td>
           <td>{timeOut}</td>
-          <td>{addTime(timeIn, timeOut)}</td>
+          <td>{addTime(date, timeIn, timeOut)}</td>
         </tr>
       </tbody>
     </table>

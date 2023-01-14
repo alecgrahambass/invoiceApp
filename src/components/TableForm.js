@@ -3,7 +3,7 @@ export default function TableForm({date, setDate, timeIn, setTimeIn, timeOut, se
     <article className="lg:grid grid-cols-3 gap-10">
       <div className="flex flex-col">
         <label htmlFor="date">Date</label>
-          <input type="text" name="date" id="date"
+          <input type="date" name="date" id="date"
           placeholder="Date" value={date} onChange={(e) => 
           setDate(e.target.value)}/>
       </div>
