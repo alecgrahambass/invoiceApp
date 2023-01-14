@@ -24,8 +24,8 @@ function App() {
   const [clientEmail, setClientEmail] = useState("lagudeloc22@gmail.com")
   const [clientPhone, setClientPhone] = useState("781-999-3251")
   const [invoiceNumber, setInvoiceNumber] = useState("001")
-  const [invoiceDate, setInvoiceDate] = useState("10/13/23")
-  const [dueDate, setDueDate] = useState("11/12/23")
+  const [invoiceDate, setInvoiceDate] = useState(" 2023-01-11")
+  const [dueDate, setDueDate] = useState("2023-01-31")
   const [jobTitle, setJobTitle] = useState("Musician")
   const [hourlyRate, setHourlyRate] = useState("35")
   const [notes, setNotes] = useState("please pay through bank account")
@@ -70,7 +70,7 @@ function App() {
                     <div className="flex flex-col">
                       <label htmlFor="invoiceNumber">Enter invoice number</label>
                       <input 
-                      type="text"  
+                      type="number"  
                       name="invoiceNumber" 
                       id="invoiceNumber" 
                       placeholder="Enter invoice number" 

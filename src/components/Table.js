@@ -2,12 +2,19 @@ import { getActiveElement } from "@testing-library/user-event/dist/utils"
 
 export default function Table({date, timeIn, timeOut }) {
 
+
+
   function addTime(date,timeIn, timeOut) {
       let dateTimeIn = new Date(`${date} ${timeIn}`)
       let dateTimeOut = new Date(`${date} ${timeOut}`)
+        
+      if (timeOut <= timeIn) {
+        dateTimeOut.setDate(dateTimeOut.getDate() + 1)
+      }
+
       let difference = dateTimeOut.getTime() - dateTimeIn.getTime()
       let minutes = (difference/1000)/60
-      console.log(minutes)
+
     return Math.round((minutes/60) * 100) / 100
   }
  return ( 
