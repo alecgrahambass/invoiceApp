@@ -3,20 +3,18 @@ import React from "react"
 export default function Table({list }) {
 
 
+function addHours() {
+  let previousHours = 0;
 
-  function addTime(date,timeIn, timeOut) {
-      let dateTimeIn = new Date(`${date} ${timeIn}`)
-      let dateTimeOut = new Date(`${date} ${timeOut}`)
-        
-      if (timeOut <= timeIn) {
-        dateTimeOut.setDate(dateTimeOut.getDate() + 1)
-      }
+  list.map(({hours}) => {
+    let currentHours = hours;
+  
+    currentHours = currentHours + previousHours;
+    previousHours = currentHours
+  })
+return previousHours
 
-      let difference = dateTimeOut.getTime() - dateTimeIn.getTime()
-      let minutes = (difference/1000)/60
-
-    return Math.round((minutes/60) * 100) / 100
-  }
+}
 
 
  return ( 
@@ -44,7 +42,7 @@ export default function Table({list }) {
         </React.Fragment>
       ))}
       </table>
-      <h2>Total Number of Hours: {console.log(list)}</h2>
+      <h2 >Total Number of Hours: {addHours()}</h2>
   </>
  )
 }  
