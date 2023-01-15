@@ -32,6 +32,8 @@ function App() {
   const [date, setDate] = useState("")
   const [timeIn,setTimeIn] = useState("")
   const [timeOut, setTimeOut] = useState("")
+  const [hours, setHours] = useState("")
+  const [list, setList] = useState([])
  
   const handlePrint = () => {
     window.print()
@@ -48,7 +50,7 @@ function App() {
               <MainDetails name={name} streetAddress={streetAddress} cityAddress={cityAddress} email={email} phone={phone}/>
               </section>
               <ClientDetails clientName={clientName} clientEmail={clientEmail} clientPhone={clientPhone} />
-              <Table date={date} timeIn={timeIn} timeOut={timeOut}/>
+              <Table date={date} timeIn={timeIn} timeOut={timeOut} hours={hours} setHours={setHours} list={list} setList={setList}/>
               <Notes notes={notes}/>
               <Footer bankName={bankName} bankAccount={bankAccount} zelle={zelle} venmo={venmo} />
               <button 
@@ -297,6 +299,10 @@ function App() {
                       setTimeIn={setTimeIn}
                       timeOut={timeOut}
                       setTimeOut={setTimeOut}
+                      list={list}
+                      setList={setList}
+                      hours={hours} 
+                      setHours={setHours}
                     />
                   </article>
                   

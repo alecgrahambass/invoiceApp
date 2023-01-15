@@ -1,6 +1,6 @@
 import { getActiveElement } from "@testing-library/user-event/dist/utils"
-
-export default function Table({date, timeIn, timeOut }) {
+import React from "react"
+export default function Table({list }) {
 
 
 
@@ -17,26 +17,34 @@ export default function Table({date, timeIn, timeOut }) {
 
     return Math.round((minutes/60) * 100) / 100
   }
+
+
  return ( 
   <>
-    <table width="100%">
+      <table width="100%" className="mb-10">
       <thead>
         <tr className="bg-gray-100 p-1" >
-          <td>Date</td>
-          <td>Time in</td>
-          <td>Time out</td>
-          <td>Number of Hours</td>
+          <td className="font-bold">Date</td>
+          <td className="font-bold">Time in</td>
+          <td className="font-bold">Time out</td>
+          <td className="font-bold">Number of Hours</td>
         </tr>
       </thead>
+      {list.map(({id, date, timeIn, timeOut, hours})=> (
+       <React.Fragment key={id}>
+ 
       <tbody>
         <tr>
           <td>{date}</td>
           <td>{timeIn}</td>
           <td>{timeOut}</td>
-          <td>{addTime(date, timeIn, timeOut)}</td>
+          <td>{hours}</td>
         </tr>
-      </tbody>
-    </table>
+      </tbody> 
+        </React.Fragment>
+      ))}
+      </table>
+      <h2>Total Number of Hours: {console.log(list)}</h2>
   </>
  )
 }  
