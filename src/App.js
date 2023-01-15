@@ -50,7 +50,16 @@ function App() {
               <MainDetails name={name} streetAddress={streetAddress} cityAddress={cityAddress} email={email} phone={phone}/>
               </section>
               <ClientDetails clientName={clientName} clientEmail={clientEmail} clientPhone={clientPhone} />
-              <Table date={date} timeIn={timeIn} timeOut={timeOut} hours={hours} setHours={setHours} list={list} setList={setList}/>
+              <Table 
+                date={date} 
+                timeIn={timeIn} 
+                timeOut={timeOut} 
+                hours={hours} 
+                setHours={setHours} 
+                list={list} 
+                setList={setList} 
+                hourlyRate={hourlyRate}
+              />
               <Notes notes={notes}/>
               <Footer bankName={bankName} bankAccount={bankAccount} zelle={zelle} venmo={venmo} />
               <button 
