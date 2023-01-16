@@ -7,12 +7,25 @@ body {
   -moz-osx-font-smoothing: grayscale; 
   background-color: #f1f1f1;
 }
+.backgroundTop {
+  background-color: #6bbdb7;
+}
 
-h1 {
+.backgroundBottom {
+  background-color: #aedcda;
+}
+.font{
+  color:whitesmoke ;
+}
+
+
+
+.sectionTitle {
   font-size: 1.35rem;
   color:black;
   font-weight: bold;
   text-align: center;
+  margin-top: 2rem;
   margin-bottom: 1rem;
   text-decoration: underline;
 }

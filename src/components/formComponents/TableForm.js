@@ -1,9 +1,10 @@
-import React from "react"
-import {useEffect} from "react"
+import React, { useState, useEffect } from "react"
+import {AiOutlineDelete, AiOutlineEdit} from "react-icons/ai"
 import {v4 as uuidv4} from "uuid"
 
 
-export default function TableForm({
+
+export default function TableForm({ 
     date, 
     setDate, 
     timeIn, 
@@ -13,8 +14,13 @@ export default function TableForm({
     list, 
     setList,
     hours,
+    setTotalHours,
+    totalHours,
     setHours
 }) {
+
+  const [isEditing, setIsEditing] = useState(false)
+
   const handleSubmit = (e) => {
     e.preventDefault()
     const newDay = {
@@ -22,13 +28,16 @@ export default function TableForm({
       date,
       timeIn,
       timeOut,
-      hours: addTime(date, timeIn,timeOut)
+      hours: addTime(date, timeIn,timeOut),
+      totalHours: 0
     }
     setDate("")
     setTimeIn("")
     setTimeOut("")
     setHours("")
+    setTotalHours(0)
     setList([...list, newDay])
+    setIsEditing(false)
   }
   
   function addTime(date,timeIn, timeOut) {
@@ -44,11 +53,27 @@ export default function TableForm({
 
   return Math.round((minutes/60) * 100) / 100
 }
+//Edit Function
+const editRow = (id) => {
+  const editingRow = list.find((row) => row.id === id)
+  setList(list.filter((row) => row.id !== id))
+  setIsEditing(true)
+  setDate(editingRow.date)
+  setTimeIn(editingRow.timeIn)
+  setTimeOut(editingRow.timeOut)
+  //setHours(addTime(editingRow.date, editingRow.timeIn,editingRow.timeOut))
+}
+//delete function
 
+function deleteRow(id) {
+  setList(list.filter((row) => row.id !== id))
+}
+ 
 
   return (
     <>
     <form onSubmit={handleSubmit}>
+    <h1 className="sectionTitle">Time Sheet Information</h1>
     <article className="lg:grid grid-cols-3 gap-10">
     <div className="flex flex-col">
       <label htmlFor="date">Date</label>
@@ -75,7 +100,9 @@ export default function TableForm({
     font-bold py-2 px-8
     rounded shadow border-2 border-blue-500
     hover:bg-transparent hover:text-blue-500
-    transition-all duration-300" >Add day</button>
+    transition-all duration-300" >
+      {isEditing ? "Edit Day" : "Add Day"}
+    </button>
     </form>
 
     {/*Table Items*/}
@@ -94,6 +121,12 @@ export default function TableForm({
           <td>{date}</td>
           <td>{timeIn}</td>
           <td>{timeOut}</td>
+          <td>
+            <button onClick={() => deleteRow(id)}><AiOutlineDelete className="text-red-500 text-2xl"/></button>
+          </td>
+          <td>
+            <button onClick={() => editRow(id)}><AiOutlineEdit className="text-blue-500 text-2xl"/></button>
+          </td>
         </tr>
       </tbody> 
         </React.Fragment>

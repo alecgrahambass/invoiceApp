@@ -1,7 +1,7 @@
 export default function ClientDetails({clientName, clientEmail, clientPhone}) {
   return (
     <> 
-      <section className="mt-5 grid-rows-2">
+      <section className="grid-rows-2 header">
         <h2>Bill to:</h2>
         <ul className="p-5">
           <li>{clientName}</li>
