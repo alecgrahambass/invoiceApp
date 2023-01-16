@@ -3,10 +3,6 @@ export default function NotesForm({
   setNotes,
   setIsNote
 }) {
-  function update(e){
-    setNotes(e.target.value)
-    setIsNote(true)
-  }
   return(
     <>
       <h1 className="sectionTitle"> Additional Notes</h1>
@@ -17,7 +13,7 @@ export default function NotesForm({
         rows="10"
         placeholder="Additional notes to client"
         value={notes}
-        onChange={(e) =>update(e)}
+        onChange={(e) => setNotes(e.target.value)}
       />
     </>
   )

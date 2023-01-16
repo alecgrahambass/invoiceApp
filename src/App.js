@@ -46,6 +46,16 @@ function App() {
   const handlePrint = () => {
     window.print()
   } 
+  
+  const update = () => {
+    setShowInvoice(true)
+    if (notes.length === 0) {
+      setIsNote(false)
+    } else {
+      setIsNote(true)
+    }
+  }
+
   return (
     <>
      <main className="mb-5 md:max-w-xl md:mx-auto lg:max-w-2xl xl:max-w-4xl 
@@ -151,7 +161,7 @@ function App() {
                 isNote={isNote}
                 setIsNote={setIsNote}
                 />
-            <button onClick={() => setShowInvoice(true)}
+            <button onClick={() => update()}
             className="bg-blue-500 text-white
             font-bold py-2 px-8
             rounded shadow border-2 border-blue-500
